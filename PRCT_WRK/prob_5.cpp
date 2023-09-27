@@ -2,7 +2,6 @@
 #include <cmath>
 using namespace std;
 
-// Функция для вычисления расстояния от точки до начала координат
 double distanceToOrigin(double x, double y) {
     return sqrt(x * x + y * y);
 }

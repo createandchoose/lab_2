@@ -1,22 +1,26 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
-    double side;
+    double a, b;
 
-    cout << "Введите длину стороны куба (x > 0): ";
-    cin >> side;
+    cout << "Введите длину стороны a: ";
+    cin >> a;
 
-    if (side <= 0) {
-        cout << "Ошибка! Введите корректное положительное число." << endl;
+    cout << "Введите длину стороны b: ";
+    cin >> b;
+
+    if (a <= 0 || b <= 0) {
+        cout << "Ошибка! Введите корректные положительные числа." << endl;
         return 1;
     }
 
-    double perimeter = 12 * side;
-    double surface_area = 6 * side * side;
+    double perimeter = 2 * (a + b);
+    double diagonal = sqrt(a * a + b * b);
 
-    cout << "Периметр куба: " << perimeter << endl;
-    cout << "Площадь поверхности куба: " << surface_area << endl;
+    cout << "Периметр прямоугольника: " << perimeter << endl;
+    cout << "Длина диагонали прямоугольника: " << diagonal << endl;
 
     return 0;
 }
