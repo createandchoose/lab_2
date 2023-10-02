@@ -2,7 +2,7 @@
 
 int main() {
     double x, y;
-    std::cout << "Введите точку x: ";
+    std::cout << "Введите точку x:1 ";
     std::cin >> x;
     std::cout << "Введите точку y: ";
     std::cin >> y;

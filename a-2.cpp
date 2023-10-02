@@ -4,11 +4,9 @@
 int main() {
     char symbol;
 
-    // Вводим символ с клавиатуры
     std::cout << "Введите один символ: ";
     std::cin >> symbol;
 
-    // Проверяем тип символа и выводим соответствующее сообщение
     if (isdigit(symbol)) {
         std::cout << "DIGIT" << std::endl;
     } else if (isupper(symbol)) {
