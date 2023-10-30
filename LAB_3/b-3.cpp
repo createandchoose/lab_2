@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int getSumOfDigits(int number) {
     int sum = 0;
@@ -10,6 +11,7 @@ int getSumOfDigits(int number) {
 }
 
 int main() {
+    setlocale(LC_ALL, "Russian");
     int n;
     std::cout << "Введите n: ";
     std::cin >> n;

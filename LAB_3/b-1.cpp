@@ -1,17 +1,18 @@
 #include <iostream>
+using namespace std;
 
 int main() {
-    int n;
-    std::cout << "Введите значение n: ";
-    std::cin >> n;
-
-    int count = 0;
-    for (int i = 1; count < n; i++) {
-        for (int j = 0; j < i && count < n; j++) {
-            std::cout << i << " ";
-            count++;
-        }
+    int n,c;
+    double sum, sr;
+    sum = 0;
+    c = 6;
+    for (int i = 0; i < c; i++) {
+        cin >> n;
+        sum += n;
     }
+
+    sr = sum /c;
+    cout << sr;
 
     return 0;
 }
