@@ -1,33 +1,34 @@
-#define NDEBUG
-#include<cassert>
-const double EPS = 1e-6;
+#include <iostream>
+#include <cmath>
 
-int main(){
-    //здесь делайте ввод данных с консоли, передайте их функции solve()
-    //возвращаемый ответ функции выводите на консоль
-    
-    //Dulustan's tests
-    {
-        assert(abs(dist(0, 0, 1000, 0) - 1000) < EPS);
-        assert(abs(dist(-5, 15, 10, -10) - 29.154759474) < EPS);
-        assert(abs(dist(-12.5, 50000, 12.5, 50200) - 201.556443707) < EPS);
-        assert(abs(solve(0, 0, 6, 0, 3, 2) - 6) < EPS);
-        assert(abs(solve(-2, -2, -2, 4, 9, 1) - 11.401754251) < EPS);
-        assert(abs(solve(1, 4, -5, -1, 0, -3) - 7.810249676) < EPS);
-        #ifndef NDEBUG
-            cout << "SUCCESS 1!" << endl;
-        #endif
-    }
-
-    //Придумайте по 3 теста для dist и solve.
-    //Каждый тест нарисуйте на бумаге и покажите преподу.
-    //Student's tests
-    {
-        #ifndef NDEBUG
-            cout << "SUCCESS 2!" << endl;
-        #endif
-    }
+double dist(double x1, double y1, double x2, double y2) {
+    return std::sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
+int main() {
+    double x1, y1, x2, y2, x3, y3;
 
+    std::cout << "#1 (x1 y1): ";
+    std::cin >> x1 >> y1;
 
+    std::cout << "#2 (x2 y2): ";
+    std::cin >> x2 >> y2;
+
+    std::cout << "#3 (x3 y3): ";
+    std::cin >> x3 >> y3;
+
+    double side1 = dist(x1, y1, x2, y2);
+    double side2 = dist(x2, y2, x3, y3);
+    double side3 = dist(x3, y3, x1, y1);
+
+    double max_side = std::max(std::max(side1, side2), side3);
+
+    if (side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2) {
+        std::cout << "most long treugolnik: " << max_side << std::endl;
+    } else {
+        std::cout << "error treugolnik not correct" << std::endl;
+        max_side = -1;
+    }
+
+    return 0;
+}

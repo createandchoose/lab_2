@@ -1,0 +1,31 @@
+#include <iostream>
+
+int countLocalMaxima() {
+    double prev, current, next;
+    int count = 0;
+
+    std::cout << "Введите последовательность чисел:" << std::endl;
+
+    // Read the first two numbers
+    std::cin >> prev >> current;
+
+    while (std::cin >> next) {
+        // Check for a local maximum
+        if (current > prev && current > next) {
+            count++;
+        }
+
+        // Move to the next pair of numbers
+        prev = current;
+        current = next;
+    }
+
+    return count;
+}
+
+int main() {
+    int localMaximaCount = countLocalMaxima();
+    std::cout << "Количество локальных максимумов: " << localMaximaCount << std::endl;
+
+    return 0;
+}

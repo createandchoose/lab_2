@@ -1,27 +1,31 @@
-#define NDEBUG
-#include<cassert>
+#include <iostream>
+#include <cmath>
 
-
-int main(){
-
-    //Dulustan's tests
-    {
-        assert(sum_p(1,10) == 55);
-        assert(sum_m(2,10) == 385);
-        assert(sum_m(3,3) == 36);
-        assert(sum_m(4,5) == 979);
-        #ifndef NDEBUG
-            cout << "SUCCESS 1!" << endl;
-        #endif
+long long power(int base, int power) {
+    long long result = 1;
+    for (int i = 0; i < power; i++) {
+        result *= base;
     }
-
-    //Придумайте 4 теста.
-    //Student's tests
-    {
-        #ifndef NDEBUG
-            cout << "SUCCESS 2!" << endl;
-        #endif
-    }
+    return result;
 }
 
+long long sum_p(int p, int n) {
+    long long sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += power(i, p);
+    }
+    return sum;
+}
 
+int main() {
+    int p, n;
+    std::cout << "p: ";
+    std::cin >> p;
+    std::cout << "n: ";
+    std::cin >> n;
+
+    long long result = sum_p(p, n);
+    std::cout << "Сумма " << p << "-х степеней чисел от 1 до " << n << " равна: " << result << std::endl;
+
+    return 0;
+}

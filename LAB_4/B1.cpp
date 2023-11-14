@@ -1,34 +1,48 @@
-#define NDEBUG
-#include<cassert>
+#include <iostream>
+#include <vector>
 
-
-int main()
-{
-    
-    //Dulustan's tests
-    {
-        assert(hamming(1));
-        assert(hamming(8));
-        assert(hamming(12));
-        assert(hamming(24));
-        assert(hamming(45));
-        assert(hamming(384));
-        assert(!hamming(14));
-        assert(!hamming(26));
-        assert(!hamming(44));
-        assert(!hamming(365));     
-        #ifndef NDEBUG
-            cout << "SUCCESS 1!" << endl;
-        #endif   
+bool isHamming(int n) {
+    while (n % 2 == 0) {
+        n /= 2;
     }
-
-    //Придумайте 3 положительных и 3 отрицательных теста.
-    //Student's tests
-    {
-        #ifndef NDEBUG
-            cout << "SUCCESS 2!" << endl;
-        #endif     
-    }    
+    while (n % 3 == 0) {
+        n /= 3;
+    }
+    while (n % 5 == 0) {
+        n /= 5;
+    }
+    return n == 1;
 }
 
+void generateHammingNumbers(int M, int N) {
+    if (M <= 0 || M > N) {
+        std::cout << "Error M и N\n";
+        return;
+    }
 
+    std::vector<int> hammingNumbers;
+    for (int i = 1; i <= N; ++i) {
+        if (isHamming(i)) {
+            hammingNumbers.push_back(i);
+        }
+    }
+
+    std::cout << "[" << M << ", " << N << "]:\n";
+    for (int num : hammingNumbers) {
+        if (num >= M) {
+            std::cout << num << " ";
+        }
+    }
+    std::cout << std::endl;
+}
+
+int main() {
+    int M, N;
+
+    std::cout << "M and N (0 < M <= N): ";
+    std::cin >> M >> N;
+
+    generateHammingNumbers(M, N);
+
+    return 0;
+}
