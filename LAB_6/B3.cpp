@@ -20,7 +20,7 @@ int main() {
     }
 
     sort(x.begin(), x.end());
-    sort(y.begin(), y.end());
+    sort(y.begin(), y.end());325
 
     int width = x[n - 1] - x[0];
     double height = y[n - 1] - y[0];

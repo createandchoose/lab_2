@@ -1,8 +1,15 @@
-#define NDEBUG
+//#define NDEBUG
+#include <bits/stdc++.h>
 #include<cassert>
 
+using namespace std;
+
 void solve(vector<int> &a, vector<int> &b){
-        
+    for (int i = 0; i < a.size(); i++) {
+        if (b[i] < a[i]) {
+            swap(a[i], b[i]);
+        }
+    }
 }
 
 int main(){
@@ -38,6 +45,24 @@ int main(){
     //минимум 3 теста
     //Student's tests
     {
-        vector<int> a, b;    
+        vector<int> a, b;
+
+        a = vector<int>{5, 4, 3, 2, 1};
+        b = vector<int>{1, 2, 3, 4, 5};
+        solve(a, b);
+        assert(a == vector<int>({1, 2, 3, 2, 1}));
+        assert(b == vector<int>({5, 4, 3, 4, 5}));
+
+        a = vector<int>{4, 2, 3, 1};
+        b = vector<int>{2, 3, 1, 4};
+        solve(a, b);
+        assert(a == vector<int>({2, 2, 1, 1}));
+        assert(b == vector<int>({4, 3, 3, 4}));
+
+        a = vector<int>{0, 0, 1, 2};
+        b = vector<int>{1, 2, 3, 3};
+        solve(a, b);
+        assert(a == vector<int>({0, 0, 1, 2}));
+        assert(b == vector<int>({1, 2, 3, 3}));
     }
 }
